@@ -11,15 +11,15 @@ import com.csvreader.CsvReader;
 
 public class isGit {
 	public static void main(String[] args) throws IOException {
-		CsvReader r = new CsvReader("D://inputgit.csv", ',', Charset.forName("GBK"));
+		CsvReader r = new CsvReader("D:\\inputgit.csv", ',', Charset.forName("GBK"));
 		r.readHeaders();
 		r.readRecord(); 	    	
-		String number_csv = r.get("Ñ§ºÅ");	          
-		String name_csv = r.get("ĞÕÃû");
-	    String address_csv = r.get("githubµØÖ·");
+		String number_csv = r.get("å­¦å·");	          
+		String name_csv = r.get("å§“å");
+	    String address_csv = r.get("githubåœ°å€");
 	    String pwd_csv = number_csv.substring(number_csv.length()-6,number_csv.length());
 		
-	    System.setProperty("webdriver.firefox.bin", "D:/»ğºüä¯ÀÀÆ÷/firefox.exe"); 
+	    System.setProperty("webdriver.firefox.bin", "D:\\Dapplo\\Download\\firefox\\firefox.exe"); 
 	    WebDriver driver = new FirefoxDriver();
 	   driver.get("http://121.193.130.195:8080/");			   
 	   driver.manage().window().maximize();
@@ -36,9 +36,9 @@ public class isGit {
 	   btn.click();
 
 	   String info_web = driver.findElement(By.xpath("//tbody[@id='table-main']")).getText();
-	   String name_web = info_web.substring(info_web.indexOf("Ãû") + 2, info_web.indexOf("Ñ§") - 1);
-	   String number_web = info_web.substring(info_web.indexOf("ºÅ") + 2, info_web.indexOf("G") - 1);
-	   String address_web = info_web.substring(info_web.indexOf("Ö·") + 2);
+	   String name_web = info_web.substring(info_web.indexOf("å") + 2, info_web.indexOf("å­¦") - 1);
+	   String number_web = info_web.substring(info_web.indexOf("å·") + 2, info_web.indexOf("G") - 1);
+	   String address_web = info_web.substring(info_web.indexOf("å€") + 2);
 
 	   if(name_csv.equals(name_web)&&number_csv.equals(number_web)&&address_csv.equals(address_web))
 		{
